@@ -1,0 +1,27 @@
+[project]
+name = "pytorch-fundamental"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "matplotlib>=3.10.8",
+    "torch>=2.10.0",
+    "torchaudio>=2.10.0",
+    "torchvision>=0.25.0",
+    "tqdm>=4.67.3",
+]
+
+[tool.uv]
+prerelease = "allow"
+exclude-dependencies = ["triton"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128-nightly" }
+torchvision = { index = "pytorch-cu128-nightly" }
+torchaudio = { index = "pytorch-cu128-nightly" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128-nightly"
+url = "https://download.pytorch.org/whl/nightly/cu128"
+explicit = true
