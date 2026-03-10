@@ -11,8 +11,7 @@ class LeNet5(nn.Module):
             nn.MaxPool2d(kernel_size=2, stride=2),  # 28×28×6 → 14×14×6
             nn.Conv2d(6, 16, kernel_size=5),  # 14×14×6 → 10×10×16
             nn.ReLU(),
-            # MaxPool: 10×10×16 → 5×5×16
-            nn.MaxPool2d(kernel_size=2, stride=2),
+            nn.MaxPool2d(kernel_size=2, stride=2),  # 10×10×16 → 5×5×16
         )
 
         self.classifier = nn.Sequential(
@@ -28,4 +27,3 @@ class LeNet5(nn.Module):
         x = self.features(x)
         x = self.classifier(x)
         return x
- 
